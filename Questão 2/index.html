@@ -10,6 +10,11 @@
             const numeroItens = document.getElementById('numeroItens').value;
             const tipoLista = document.getElementById('tipoLista').value;
             const listaGerada = document.getElementById('listaGerada');
+
+             if (!numeroItens || numeroItens <= 0) {
+                listaGerada.innerHTML = '<p style="color: red;">Erro: Por favor, selecione um número válido de itens.</p>';
+                return;
+            }
             
             listaGerada.innerHTML = '';
             
