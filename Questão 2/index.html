@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 2 | Lista 6</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function gerarLista() {
+            const numeroItens = document.getElementById('numeroItens').value;
+            const tipoLista = document.getElementById('tipoLista').value;
+            const listaGerada = document.getElementById('listaGerada');
+            
+            listaGerada.innerHTML = '';
+            
+            const lista = tipoLista === 'ordenada' ? document.createElement('ol') : document.createElement('ul');
+            
+            for (let i = 1; i <= numeroItens; i++) {
+                const item = document.createElement('li');
+                item.textContent = `Anthony ${i}`;
+                lista.appendChild(item);
+            }
+            
+            listaGerada.appendChild(lista);
+        }
+    </script>
+</head>
+<body>
+    <h1>Gerador de Listas</h1>
+    <label for="numeroItens">Número de itens:</label>
+    <input type="number" id="numeroItens" min="1" value="5">
+    <br><br>
+    <label for="tipoLista">Tipo de lista:</label>
+    <select id="tipoLista">
+        <option value="ordenada">Ordenada</option>
+        <option value="naoOrdenada">Não ordenada</option>
+    </select>
+    <br><br>
+    <button onclick="gerarLista()">Gerar Lista</button>
+    <div id="listaGerada"></div>
+</body>
+</html>
